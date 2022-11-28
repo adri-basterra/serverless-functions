@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
     console.log(process.env.NEWSLETTER_KEY);
     const data = await axios.post(url, { email }, {
       headers: {
-        'Authorization': `Token ${process.env.NEWSLETTER_KEY}`
+        Authorization: `Token ${process.env.NEWSLETTER_KEY}`
       }
     });
     return {
