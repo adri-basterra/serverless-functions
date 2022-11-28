@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+const url = `https://api.openweathermap.org/data/2.5/weather?appid=${PROCESS.env.OPEN_WEATHER_API_KEY}`
 
 exports.handler = async (event, context) => {
   const method = event.httpMethod;
