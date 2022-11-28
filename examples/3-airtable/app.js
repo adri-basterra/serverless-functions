@@ -3,7 +3,8 @@ const result = document.querySelector('.result')
 const fetchData = async () => {
   try {
     // https://serverless-functions-adri.netlify.app
-    const { data } = await axios.get('/api/3-airtable');
+    // const { data } = await axios.get('/api/3-airtable');
+    const { data } = await axios.get('/api/3-z-complete');
     const products = data.map((product) => {
       const { id, url, name, price } = product;
       return `

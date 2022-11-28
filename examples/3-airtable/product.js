@@ -3,8 +3,10 @@ const result = document.querySelector('.result');
 const fetchProduct = async () => {
   result.innerHTML = `<h2>Loading...</h2>`;
   try {
+    // const id = '?id=1'
     const id = window.location.search;
-    const { data: { fields } } = await axios.get(`/api/3-product${id}`);
+    // const { data: { fields } } = await axios.get(`/api/3-product${id}`);
+    const { data: { fields } } = await axios.get(`/api/3-z-complete${id}`);
     const { name, description, price, image } = fields;
     result.innerHTML = `
       <h1 class="title">Single Product</h1>
