@@ -14,6 +14,12 @@ exports.handler = async (event, context) => {
     }
   }
   const { email } = JSON.parse(event.body);
+  if (!email) {
+    return {
+      statusCode: 400,
+      body: 'Please provide a valid email address'
+    }
+  }
   try {
     const data = await axios.post(url, { email }, {
       headers: {
