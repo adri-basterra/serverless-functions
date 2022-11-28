@@ -11,13 +11,11 @@ const fetchData = async () => {
           <img src="${url}" alt="${name}"/>
           <div class="info">
             <h5>${name}</h5>
-            <h5 class="price">${price}</h5>
+            <h5 class="price">$${price}</h5>
           </div>
-        </a>
-      `
+        </a>`;
     })
-    console.log(data);
-    result.textContent = data;
+    result.innerHTML = products;
   }
   catch (error) {
     result.textContent = error.message;
