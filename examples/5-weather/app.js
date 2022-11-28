@@ -18,8 +18,22 @@ async function getWeatherData(city) {
   alert.style.display = 'none';
   try {
     const { data } = await axios.post('/api/5-weather', { city });
-
+    const { name } = data;
+    const { country } = data.sys;
+    const { temp_max: max, temp_min: min, feels_like } = data.main;
+    const { description } = data.weather[0];
+    result.innerHTML = `
+      <article class="card">
+        <h3>${name}, ${country}</h3>
+        <p>${description}</p>
+        <p>min temp: ${min}&#8457</p>
+        <p>max temp: ${max}&#8457</p>
+        <p>feels like: ${feels_like}&#8457</p>
+      </article>
+    `
   } catch (error) {
     console.error(error.response);
+    alert.textContent = "Cannot find weather data for city: " + city;
+    alert.style.display = 'block';
   }
 }
