@@ -1,9 +1,6 @@
 require('dotenv').config();
-const Airtable = require('airtable-node');
-
-const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
-  .base('appkIMhibZ7JDeSPt')
-  .table('survey');
+const axios = require('axios');
+const url = 'https://api.buttondown.email/v1/subscribers';
 
 exports.handler = async (event, context) => {
   const method = event.httpMethod;
@@ -21,9 +18,10 @@ exports.handler = async (event, context) => {
     }
   }
   try {
+    console.log(process.env.NEWSLETTER_KEY);
     const data = await axios.post(url, { email }, {
       headers: {
-        Authorization: `Token ${process.env.NEWSLETTER_KEY}`
+        'Authorization': `Token ${process.env.NEWSLETTER_KEY}`
       }
     });
     return {
@@ -33,12 +31,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 400,
-      body: JSON.stringify(error.response.data)
+      body: JSON.stringify(error.message)
     }
-  }
-  return {
-    headers: { 'Access-Control-Allow-Origin': '*' },
-    statusCode: 200,
-    body: 'JSON.stringify(items)'
   }
 }
