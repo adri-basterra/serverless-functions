@@ -22,7 +22,7 @@
   "devDependencies": {
     "glob-parent": "^5.1.2",
     "got": "^11.8.5",
-    "netlify-cli": "^12.2.7",
+    "netlify-cli": "^12.2.9",
     "node-fetch": "^3.3.0"
   }
 }
