@@ -20,7 +20,7 @@
     "stripe": "^11.1.0"
   },
   "devDependencies": {
-    "glob-parent": "^5.1.2",
+    "glob-parent": "^6.0.2",
     "got": "^12.5.3",
     "netlify-cli": "^12.2.7",
     "node-fetch": "^3.3.0"
